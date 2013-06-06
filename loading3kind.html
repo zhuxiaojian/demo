@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<canvas id='lOAd' width='35' height='35' style='dispaly:inline-block;vertical-align:middle;'></canvas>
+<span class="loadBg"><em></em></span>
+<img src="http://script.suning.cn/css/ShoppingArea/V8/home/images/loading.gif" alt="">
+<script>
+var c = document.getElementById('lOAd');
+var ctx = c.getContext('2d');
+var index = 0;
+setInterval(function(){
+	ctx.clearRect(0,0,c.width,c.height);
+	ctx.beginPath();
+	ctx.lineWidth = 3;
+	ctx.arc(17,17,11,0,Math.PI*2,false);
+	ctx.closePath();
+	ctx.strokeStyle = "#08c"
+	ctx.lineWidth = 3
+	ctx.stroke();
+	ctx.restore();
+	index += 10
+	var x = 11*Math.cos((index)*Math.PI/180)+17;
+	var y = 11*Math.sin((index)*Math.PI/180)+17;
+	ctx.beginPath();
+	ctx.arc(x,y,5,0,Math.PI*2,false);
+	ctx.fillStyle = "#f60";
+	ctx.closePath();
+	ctx.fill();
+},20);
+</script>
+<style>
+.loadBg{position:relative;display:inline-block;border:3px solid #08c;height:17px;width:17px;border-radius:17px;-webkit-animation-name:loading;-webkit-animation-duration:.7s;-webkit-animation-iteration-count:9000;-webkit-animation-timing-function:linear;vertical-align:middle;}
+.loadBg em{position:absolute;left:-5px;top:3px;height:9px;width:9px;background:#f60;border-radius:8px;}
+@-webkit-keyframes loading {0% {-webkit-transform:rotate(0deg); } 100% {-webkit-transform:rotate(360deg); } }
+</style>
+</body>
+</html>
