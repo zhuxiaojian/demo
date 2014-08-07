@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+    <title>玩一玩</title>
+    <style>
+    *{margin:0;padding:0;}
+    #this{width:50%;margin:10px auto;display:block;}
+    table{width:100%;border-spacing:0;border-collapse: collapse;-webkit-box-sizing:border-box;}
+    td {
+    	padding:25px;
+        border:1px solid #ccc;
+        -webkit-box-sizing:border-box;
+    }
+
+    .active {
+    	background-color:yellow;
+    }
+    </style>
+</head>
+<body ng-app="test">
+<input id="this" type="text" placeholder="请输入需要挑战的数字">
+	<div ng-controller="TestCtrl">
+		<table ng-show="!success()" border="1">
+			<tr ng-repeat="row in arr track by $index">
+				<td ng-repeat="cell in row track by $index" ng-class="gridClass($parent.$index, $index)" ng-click="gridClick($parent.$index, $index)"></td>
+			</tr>
+		</table>
+		<div ng-show="success()">赢了</div>
+	</div>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
