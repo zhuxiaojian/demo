@@ -6,7 +6,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta content="telephone=no" name="format-detection" />
-	<title>Touch</title>
+	<title>小抽奖</title>
 </head>
 <body>
 <div id="box"></div>
@@ -17,12 +17,12 @@ span{color:red;}
 <script type="text/javascript">
 var random = Math.random() * 5000;
 if(!window.localStorage.temp){
-	window.localStorage.temp = 1
+	window.localStorage.temp = 0
 }
 window.localStorage.temp++;
 if(parseInt(random,10) > 4800){
 	document.getElementById('box').innerHTML = "中奖了,您只用了<span>" + window.localStorage.temp + "<span>次";
-	window.localStorage.temp = 1;
+	window.localStorage.temp = 0;
 } else {
 	document.getElementById('box').innerHTML = "没中奖,请继续刷新,你已经刷新了<span>" + window.localStorage.temp + "</span>次";
 }
