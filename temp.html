@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta content="telephone=no" name="format-detection" />
+	<title>Touch</title>
+</head>
+<body>
+<div id="box"></div>
+<style type="text/css">
+#box{margin:150px auto;width:200px;border:1px solid #ccc;padding:20px;}
+span{color:red;}
+</style>
+<script type="text/javascript">
+var random = Math.random() * 5000;
+if(!window.localStorage.temp){
+	window.localStorage.temp = 1
+}
+window.localStorage.temp++;
+if(parseInt(random,10) > 4800){
+	document.getElementById('box').innerHTML = "中奖了,您只用了<span>" + window.localStorage.temp + "<span>次";
+	window.localStorage.temp = 1;
+} else {
+	document.getElementById('box').innerHTML = "没中奖,请继续刷新,你已经刷新了<span>" + window.localStorage.temp + "</span>次";
+}
+
+</script>
+</body>
+</html>
