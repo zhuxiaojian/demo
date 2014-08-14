@@ -9,26 +9,34 @@
 	<title>小抽奖</title>
 </head>
 <body>
-
+<div class="game-wrap">
 <div id="box"></div>
 <button id="button">点击刷新</button>
+</div>
 <style type="text/css">
-body{background:#F1F1f1;}
-#box{margin:150px auto;width:200px;padding:20px;}
-#button{margin:0 auto;width:100px;display:block;}
+html{height:100%;overflow:hidden;}
+*{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+body{background:-webkit-gradient(linear, left top, left bottom, from(#F5EED4), to(#EBD996));background-size:100%}
+#box{position:relative;margin:50px auto;width:200px;padding:25px;color:#333;border:1px solid #F5D193;background:#fff;-webkit-box-shadow: 1px 1px 4px rgba(0,0,0, 0.1);-webkit-border-bottom-right-radius: 60px 5px;line-height:1.6;text-shadow:0 0 1px #f1f1f1;}
+#box:before{position:absolute;display:block;content:"";background:#fff;border: 1px solid #F5D193;-webkit-box-shadow: 3px 1px 8px rgba(0,0,0, 0.1);right:0;bottom:0;padding:0 0 1px 0;width:98%;height:100%;z-index:-1;-webkit-transform: skew(2deg,2deg) translate(3px,8px);-webkit-box-shadow: 0px 0px 8px rgba(0,0,0, 0.1);-webkit-border-bottom-right-radius:60px 5px;}
+#box:after{position:absolute;display:block;content:"";background:#fff;border: 1px solid #F5D193;-webkit-box-shadow: 1px 1px 8px rgba(0,0,0, 0.1);right:0;bottom:0;padding:0 0 1px 0;width:98%;height:100%;z-index:-1;-webkit-transform: skew(2deg,2deg) translate(-1px,2px);-webkit-box-shadow: 0px 0px 8px rgba(0,0,0, 0.1);-webkit-border-bottom-right-radius:60px 5px;}
+#button{margin:0 auto;width:100px;height:100px;display:block;border:none;color:#fff;background:#FFB643;box-shadow: 0 0 1px #ccc;border-radius:50px;background:#FFB643;
+box-shadow: 1px 1px 1px #ccc;font-size:16px;}
 span{color:red;}
+
 </style>
 <script type="text/javascript">
 var random = Math.random() * 5000;
 if(!window.localStorage.temp){
 	window.localStorage.temp = 0
 }
+var arr = ['不要在意那些细节!', '苏宁苏宁我为你自豪!', '呀,你没有中奖!', '除了闲聊你们每天都干了什么!', '我最喜欢舒肤佳了!']
 window.localStorage.temp++;
 if(parseInt(random,10) > 4800){
 	document.getElementById('box').innerHTML = "中奖了,您只用了<span>" + window.localStorage.temp + "<span>次";
 	window.localStorage.temp = 0;
 } else {
-	document.getElementById('box').innerHTML = "呀,你没有没中奖,继续刷新才能中奖,你已经刷新了<span>" + window.localStorage.temp + "</span>次";
+	document.getElementById('box').innerHTML = arr[parseInt((Math.random() * 5),10)] + "继续刷新才能中奖,你已经刷新了<span>" + window.localStorage.temp + "</span>次";
 }
 document.getElementById('button').onclick = function(){
 	window.location.href = window.location.href;
