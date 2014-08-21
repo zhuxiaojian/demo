@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-21 20:46:36
+* @Last Modified time: 2014-08-21 21:02:01
 */
 
 // (function(){
@@ -39,6 +39,8 @@
 	    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
 	        WeixinJSBridge.invoke('sendAppMessage', {
 	            "img_url": window.shareData.imgUrl,
+	            "img_width": "200",
+	            "img_height": "200",
 	            "link": window.shareData.timeLineLink,
 	            "desc": window.shareData.tContent,
 	            "title": window.shareData.tTitle
@@ -48,8 +50,8 @@
 	    WeixinJSBridge.on('menu:share:timeline', function(argv) {
 	        WeixinJSBridge.invoke('shareTimeline', {
 	            "img_url": window.shareData.imgUrl,
-	            "img_width": "640",
-	            "img_height": "640",
+	            "img_width": "200",
+	            "img_height": "200",
 	            "link": window.shareData.timeLineLink,
 	            "desc": window.shareData.tContent,
 	            "title": window.shareData.tTitle
