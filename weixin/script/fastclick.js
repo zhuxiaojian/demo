@@ -2,14 +2,14 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-21 11:46:23
+* @Last Modified time: 2014-08-21 14:27:13
 */
 
 // (function(){
 	// alert("点击表格内数字,一定时间内累看谁点击的分数最多!")
 	var Mdata = MO.obs({
 		total: 0,
-		Time: 10,
+		Time: 5,
 		win: function(callback){
 			Mdata.on("win", function(total){
 				callback(total);
@@ -17,6 +17,7 @@
 		}
 	});
 	var Game = {};
+	var totalNumber = 0;
 	var tmpl = '<ul>' + 
 					'{# for ( var i = 0; i <' + 4 +'; i++) { #}' +
 						'<li></li>' +
@@ -33,7 +34,7 @@
 			total: function(){
 				Mdata.on("touch:total", function(item){
 					console.log("total")
-					var totalNumber = 0;
+					
 					// Array.prototype.slice.call(document.querySelectorAll("li")).forEach(function(item, index){
 						item.addEventListener("touchstart", function(){
 							totalNumber += parseInt(this.dataset.total,10);
@@ -99,15 +100,14 @@
 				reset.style.display = "block";
 				mask.style.display = "block";
 				if(reset.dataset.one != "true"){
-
+					
 					reset.addEventListener("touchstart", function(){
 						reset.style.display = "none";
 						mask.style.display = "none";
-						Mdata.Time = 10;
+						totalNumber = 0;
+						Mdata.Time = 5;
 						document.querySelector("#total").innerHTML = 0;
-						setTimeout(function(){
-							Mdata.trigger("start");
-						},500);
+						Mdata.trigger("start");
 						Mdata.trigger("start:game");
 					});
 					reset.dataset.one = "true";
