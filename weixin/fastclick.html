@@ -7,21 +7,31 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta content="telephone=no" name="format-detection" />
 	<link rel="stylesheet" href="http://sale.suning.com/images/advertise/hg/20140818zhd/style/base.css">
-	<style type="text/css">
-	*{-webkit-box-sizing:border-box;}
-	ul{width:100%;background:#fff;overflow:hidden;max-width:1024px;margin:0 auto;}
-	li{width:25%;text-align:center;border-radius:50%;float:left;background:#2ca9e1;color:#fff;font-size:18px;max-width:100px;}
-	.total{font-size:20px;}
-	#total{color:#f00;}
-	.time{font-size:18px;}
-	</style>
-	<title>赢红包</title>
+	<link rel="stylesheet" href="style/hongbao.css">
+	<title>红包抢夺战</title>
 </head>
 <body>
+<div class="startPage" id="page1">
+	<div class="logo"><img src="style/images/hongbao/logo.png" width="55%" alt=""></div>
+	<div class="logo"><img src="style/images/hongbao/rules.png" width="55%" alt=""></div>
+	<div class="logo" id="startBtn"><img src="style/images/hongbao/button.png" width="55%" alt=""></div>
+</div>
+	
 <div id="touchBox"></div>
-<div class="tc mtb10 total">总分:<span id="total">0</span></div>
-<div class="tc mtb10 time">剩余时间:<span id="time"></span></div>
+<div class="wbox">
+	<div class=" mtb10 total"><span id="total">0</span></div>
+	<div class=" mtb10 time"><span id="time">0</span></div>
+</div>
+<div class="tc mtb10 f16 hide" id="reset"><a href="javascript:;">再玩一次</a></div>
+<div id="mask"></div>
 <script type="text/javascript" src="script/M.js"></script>
 <script type="text/javascript" src="script/fastclick.js"></script>
+<script type="text/javascript">
+	// 提交数据
+	Mdata.win(function(total){
+		alert("游戏结束,您最终获得了" + total + "分");
+		// 提交数据
+	});
+</script>
 </body>
 </html>
