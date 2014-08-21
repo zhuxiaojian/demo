@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-21 17:06:37
+* @Last Modified time: 2014-08-21 17:31:06
 */
 
 // (function(){
@@ -12,6 +12,7 @@
 		Time: 15,
 		win: function(callback){
 			Mdata.on("win", function(total){
+				document.title = "红包抢夺战,我从红包里得到了" + Mdata.total + "分,一起来挑战吧";
 				callback(total);
 			});
 		}
@@ -149,21 +150,19 @@
 		});
 	});
 
-	Object.defineProperty(Mdata, "total", {
-	    set: function (value) {
-	        this._name = totalNumber;
-	        // this.trigger("change:value", value);
-	    },
-	    get: function () {
+	// Object.defineProperty(Mdata, "total", {
+	//     set: function (value) {
+	//         this._name = totalNumber;
+	//     },
+	//     get: function () {
 
-	        return this._name;
-	    }
-	});
+	//         return totalNumber;
+	//     }
+	// });
 
 	//微信分享操作
 	var shareThis = new pageShare({
 	    //分享的标题
-	    shareTitle:"红包抢夺战,我从红包里得到了" + Mdata.total + "分,一起来挑战吧",
 	    //微信分享的内容概要
 	    descContent:"天上掉红包,不捡白不捡!动动你的小手指,啪啪啪!",
 	    //微信分享的缩略图的地址
