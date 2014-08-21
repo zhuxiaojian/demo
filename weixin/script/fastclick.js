@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-21 14:59:47
+* @Last Modified time: 2014-08-21 15:33:10
 */
 
 // (function(){
@@ -85,7 +85,8 @@
 							var _html = "";
 							var arr = item.dataset.total.split("");
 							for(var i = 0; i < arr.length; i++){
-								_html += '<img class="pic" src="style/images/hongbao/' + arr[i] + '.png" width="17" height="15" />';
+								// _html += '<img class="pic" src="style/images/hongbao/' + arr[i] + '.png" width="17" height="15" />';
+								_html += '<span class="p' + arr[i] + '"></span>';
 							}
 							item.innerHTML =_html;
 						});
@@ -94,16 +95,6 @@
 				});
 			},
 			resetGame: function(){
-					
-				//微信分享操作
-				var shareThis = new pageShare({
-				    //分享的标题
-				    shareTitle:"红包抢夺战,我从红包里得到了" + document.querySelector("#total").innerHTML + "分,一起来挑战吧",
-				    //微信分享的内容概要
-				    descContent:"天上掉红包,不捡白不捡!动动你的小手指,啪啪啪!",
-				    //微信分享的缩略图的地址
-				    imgUrl:"http://code.ppanda.com/demo/weixin/style/images/hongbao/logo.png"
-				});
 				var reset = document.querySelector("#reset");
 				var mask = document.querySelector("#mask");
 				reset.style.display = "block";
@@ -132,7 +123,8 @@
 					var _html = "";
 					var arr = item.dataset.total.split("");
 					for(var i = 0; i < arr.length; i++){
-						_html += '<img class="pic" src="style/images/hongbao/' + arr[i] + '.png" width="17" height="15" />';
+						// _html += '<img class="pic" src="style/images/hongbao/' + arr[i] + '.png" width="17" height="15" />';
+						_html += '<span class="p' + arr[i] + '"></span>';
 					}
 					item.innerHTML =_html;
 					Mdata.trigger("touch:total",item);
@@ -155,16 +147,15 @@
 		});
 	});
 
-var shareThis = new pageShare({
-    //分享的标题
-    shareTitle:"红包抢夺战,我从红包里得到了" + totalNumber + "分,一起来挑战吧",
-    //微信分享的内容概要
-    descContent:"天上掉红包,不捡白不捡!动动你的小手指,啪啪啪!",
-    //微信分享的缩略图的地址
-    imgUrl:"http://code.ppanda.com/demo/weixin/style/images/hongbao/logo.png"
-});
-		
-	
+	//微信分享操作
+	var shareThis = new pageShare({
+	    //分享的标题
+	    shareTitle:"红包抢夺战,我从红包里得到了" + document.querySelector("#total").innerHTML + "分,一起来挑战吧",
+	    //微信分享的内容概要
+	    descContent:"天上掉红包,不捡白不捡!动动你的小手指,啪啪啪!",
+	    //微信分享的缩略图的地址
+	    imgUrl:"http://code.ppanda.com/demo/weixin/style/images/hongbao/logo.png"
+	});
 
 // }());
 	
