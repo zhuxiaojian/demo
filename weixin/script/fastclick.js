@@ -2,14 +2,14 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-21 14:27:13
+* @Last Modified time: 2014-08-21 14:36:46
 */
 
 // (function(){
 	// alert("点击表格内数字,一定时间内累看谁点击的分数最多!")
 	var Mdata = MO.obs({
 		total: 0,
-		Time: 5,
+		Time: 15,
 		win: function(callback){
 			Mdata.on("win", function(total){
 				callback(total);
@@ -105,7 +105,7 @@
 						reset.style.display = "none";
 						mask.style.display = "none";
 						totalNumber = 0;
-						Mdata.Time = 5;
+						Mdata.Time = 15;
 						document.querySelector("#total").innerHTML = 0;
 						Mdata.trigger("start");
 						Mdata.trigger("start:game");
