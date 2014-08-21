@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-21 21:02:01
+* @Last Modified time: 2014-08-21 21:03:58
 */
 
 // (function(){
@@ -10,7 +10,7 @@
 	
 	var Mdata = MO.obs({
 		total: 0,
-		Time: 5,
+		Time: 30,
 		win: function(callback){
 			Mdata.on("win", function(total){
 				document.querySelector("#score").innerHTML = Mdata.total;
@@ -151,7 +151,7 @@
 						reset.style.display = "none";
 						mask.style.display = "none";
 						Mdata.total = 0;
-						Mdata.Time = 5;
+						Mdata.Time = 30;
 						totalNumber = 0;
 						document.querySelector("#total").innerHTML = 0;
 						Mdata.trigger("start");
