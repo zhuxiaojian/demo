@@ -2,23 +2,64 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-21 17:31:06
+* @Last Modified time: 2014-08-21 20:46:36
 */
 
 // (function(){
 	// alert("点击表格内数字,一定时间内累看谁点击的分数最多!")
+	
 	var Mdata = MO.obs({
 		total: 0,
-		Time: 15,
+		Time: 5,
 		win: function(callback){
 			Mdata.on("win", function(total){
+				document.querySelector("#score").innerHTML = Mdata.total;
 				document.title = "红包抢夺战,我从红包里得到了" + Mdata.total + "分,一起来挑战吧";
+				window.shareData.tTitle = "红包抢夺战,我从红包里得到了" + Mdata.total + "分,一起来挑战吧";
 				callback(total);
 			});
 		}
 	});
 	var Game = {};
 	var totalNumber = 0;
+
+
+	window.shareData = {
+		//分享的标题
+	    tTitle: "红包抢夺战,我从红包里得到了" + Mdata.total + "分,一起来挑战吧!",
+	    //微信分享的内容概要
+	    tContent: "天上掉红包,不捡白不捡!动动你的小手指,啪啪啪!",
+	    //微信分享的缩略图的地址
+	    imgUrl: "http://code.ppanda.com/demo/weixin/style/images/hongbao/logo.png"
+	};
+
+
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		    
+	    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+	        WeixinJSBridge.invoke('sendAppMessage', {
+	            "img_url": window.shareData.imgUrl,
+	            "link": window.shareData.timeLineLink,
+	            "desc": window.shareData.tContent,
+	            "title": window.shareData.tTitle
+	        }, onShareComplete);
+	    });
+
+	    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+	        WeixinJSBridge.invoke('shareTimeline', {
+	            "img_url": window.shareData.imgUrl,
+	            "img_width": "640",
+	            "img_height": "640",
+	            "link": window.shareData.timeLineLink,
+	            "desc": window.shareData.tContent,
+	            "title": window.shareData.tTitle
+	        }, onShareComplete);
+	    });
+	}, false);
+
+	function onShareComplete(res){
+
+	}
 	var tmpl = '<ul>' + 
 					'{# for ( var i = 0; i <' + 4 +'; i++) { #}' +
 						'<li></li>' +
@@ -97,17 +138,18 @@
 				});
 			},
 			resetGame: function(){
-				var reset = document.querySelector("#reset");
+				var reset = document.querySelector("#success");
+				var replay = document.querySelector("#replay");
 				var mask = document.querySelector("#mask");
 				reset.style.display = "block";
 				mask.style.display = "block";
 				if(reset.dataset.one != "true"){
 					
-					reset.addEventListener("touchstart", function(){
+					replay.addEventListener("touchstart", function(){
 						reset.style.display = "none";
 						mask.style.display = "none";
 						Mdata.total = 0;
-						Mdata.Time = 15;
+						Mdata.Time = 5;
 						totalNumber = 0;
 						document.querySelector("#total").innerHTML = 0;
 						Mdata.trigger("start");
@@ -161,13 +203,9 @@
 	// });
 
 	//微信分享操作
-	var shareThis = new pageShare({
-	    //分享的标题
-	    //微信分享的内容概要
-	    descContent:"天上掉红包,不捡白不捡!动动你的小手指,啪啪啪!",
-	    //微信分享的缩略图的地址
-	    imgUrl:"http://code.ppanda.com/demo/weixin/style/images/hongbao/logo.png"
-	});
+	//
+	
+	// var shareThis = new pageShare(shareData);
 
 // }());
 	

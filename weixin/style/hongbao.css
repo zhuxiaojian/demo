@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-21 14:07:49
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-21 15:41:08
+* @Last Modified time: 2014-08-21 20:55:43
 */
 *{-webkit-box-sizing:border-box;}
 ul{width:100%;overflow:hidden;max-width:1024px;margin:50px auto 0;}
@@ -28,5 +28,10 @@ html{background:url(images/hongbao/bg.jpg) no-repeat center;background-size:100%
 .p7{background:url(data:image/x-png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAtCAMAAADbYcjNAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAnUExURUxpcQAAAAwLAAAAAAgHAPjeAPvhAP7jAH9xAOvSAOPLAPzhAP/kAO98zz0AAAAMdFJOUwAyCicayqHvRoZgLxYc3JYAAAEQSURBVEjH3ZVLDsMgDET5GccO9z9vAyUqUAyO1FVnlUWfxmOjqTF/rTMCpiKESHzuAUijIPKK4DQVkhM9kiSUBoxJljAdppyYmeheQaOpz0mnccHbooOGTaCUx1Uii/tBec64kH/rL72tWiQGN0e8D1XeH91s4MMUKaofoU8DVrBptjFsjezcRibgsIKN9HbiRawRGh7ZUTa4QuIMuLI4HQEVUBPI9iFxW1wXdg+JFTAj1oBAGCWB9zGWRHfB/fnGV0IaonuJ8M6xJgx8BdkRXY2xYlfDflWEwdFkS5gvky3RuJTs+7HaLKQbq2Fqdt1fWO5vLM2gM+ka2euIT++rsn86+RmRuzj39xOibfKf6QVt8xqK7CtI7AAAAABJRU5ErkJggg==) no-repeat center;background-size:17px 15px;width:17px;height:15px;display:inline-block;}
 .p8{background:url(data:image/x-png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAtCAMAAADbYcjNAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAwUExURUxpcQAAAAAAAAAAAAAAAP7jANO8APDWAO3UAPzhAPzhAPPaAOvSAPLYAH9wAP/kAIMtmtAAAAAPdFJOUwAyDigc6lSZGNTEtmuERm9Z2OkAAAGXSURBVEjH3ZXbtq0gCIYTFTz7/m+7dWZmirWuNzdzjOIL+DnM4/i/DUOMMaD5s7/P3RzhN2Bcfpr+gozOi/n3BG1mzL4x8c7HE5G3n0xPSwdxWjohu0VCL1mIJ0NIzgWzzys2fymlSIMgOixIE1g3f1VN0qiE2SD5RyiAWl58yL406fpgKUX+/MMsOsKmfFtilMmhtUWpvmBF9hKCY5qqW3iulVZzY5BpRQ7HDownRAxe58QgZq5XU0hXW7H2a0YMTf73GFz2RBZJXRpcqwnxUAy5iik19zIHAGUWhiDGsxKVCa3uAKfn9buWrceABPzYj+L6UvM4WY5dMByacJac/Mci39r6LlF8Z9xMVEXDkOtLlLN1dVdAjQxul/53J9pyHaCGfFfZboEcqus1DIdQwduV1GTm4DnLlXmOi3bl9Ec77pZcU9tNTN+tNQwo3EOW263ClDMX2TN+LgGDVKYMSvQz5pHZrZ6bbIcYQzn7rhgRtjWbr9HFFEgK1hiRb4il9sRNtVVvE6oAPv4xoZrqBp/AhK6P/wFkMzAkex7DeAAAAABJRU5ErkJggg==) no-repeat center;background-size:17px 15px;width:17px;height:15px;display:inline-block;}
 .p9{background:url(data:image/x-png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAtCAMAAADbYcjNAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAqUExURUxpcQAAADQvABAOAAAAAP7jAPrfAMu1AP/kAIt7APjdAPLYAPbcAP/kAIBI9uQAAAANdFJOUwAyDRwn7spyS0qriShsQqD8AAABWklEQVRIx9WU26LEEAxFRy6oy///7sFUUaKdx7Mfq0t2Esnn879kvdfaeRte/h8cxyp29hkAH0c9UkHHWXoHBY5LORBd6SiIpUq44S+tnxnb/eEPlWRa9Xjprd2qC5B1XJHdNohWna6LwiYInzGIkIiO+tlP1sIVxHwBhCzEyxmB5KsEycDtKq0QBKRk0k5d+04SwjkIzH4TgrfWd7l0Z629Xk3Ouoq1IF17jZKTiWzqEfDQrDvSdT89mHD/ZFYIDE+f0yB388aljq/H5Ux+KnIWOnFgjpWvbA0Nb4Lgci5JLaGSCS1HBhLTD1ZfrnWQ4o3URGk5yJfJkJlyJ4TN+kM0k61NkKJxZTq1yyQvRrBj9t/dIdqSmrixJRIoJuEkQs7dLgm1q++NObfmQ337crlXROqj5zrO6hVRHvNhkuomfybOd1m1fVk9Q78R52MuwrdEGbW08wEWwB+tMCYfUbE5rgAAAABJRU5ErkJggg==) no-repeat center;background-size:17px 15px;width:17px;height:15px;display:inline-block;}
+
+.success{display:none;position:absolute;left:50%;margin-left:-120px;width:240px;height:175px;background:#f1f1f1;border-radius:15px;z-index:10;padding:0 15px;}
+.success:after{content:"";position:absolute;left:50%;top:-30px;margin-left:-80px;width:160px;height:62px;background:url(images/hongbao/over.png) no-repeat;background-size:160px 62px;}
+.success:before{content:"";position:absolute;top:0;left:0;width:100%;height:170px;background:url(images/hongbao/red-bag-bg.png) no-repeat;background-size:100%;z-index:-1;}
+.success .content{background:url(images/hongbao/icon1.png) no-repeat;background-size:44px 36px;width:90%;margin:50px auto 15px;color:#f4cf00;font-size:18px;padding:7px 0 20px 53px;}
 
 	
