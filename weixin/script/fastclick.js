@@ -15,7 +15,7 @@
 			Mdata.on("win", function(total){
 				document.querySelector("#score").innerHTML = Mdata.total;
 				document.title = "红包抢夺战,我从红包里得到了" + Mdata.total + "分,一起来挑战吧";
-				window.shareData.tTitle = "红包抢夺战,我从红包里得到了" + Mdata.total + "分,一起来挑战吧";
+				window.shareData.shareTitle = "红包抢夺战,我从红包里得到了" + Mdata.total + "分,一起来挑战吧";
 				callback(total);
 			});
 		}
@@ -26,42 +26,42 @@
 
 	window.shareData = {
 		//分享的标题
-	    tTitle: "红包抢夺战,我从红包里得到了" + Mdata.total + "分,一起来挑战吧!",
+	    shareTitle: "红包抢夺战,我从红包里得到了" + Mdata.total + "分,一起来挑战吧!",
 	    //微信分享的内容概要
-	    tContent: "天上掉红包,不捡白不捡!动动你的小手指,啪啪啪!",
+	    descContent: "天上掉红包,不捡白不捡!动动你的小手指,啪啪啪!",
 	    //微信分享的缩略图的地址
 	    imgUrl: "http://code.ppanda.com/demo/weixin/style/images/hongbao/logo.png"
 	};
 
 
-	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	// document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
 		    
-	    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
-	        WeixinJSBridge.invoke('sendAppMessage', {
-	            "img_url": window.shareData.imgUrl,
-	            "img_width": "200",
-	            "img_height": "200",
-	            "link": window.shareData.timeLineLink,
-	            "desc": window.shareData.tContent,
-	            "title": window.shareData.tTitle
-	        }, onShareComplete);
-	    });
+	//     WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+	//         WeixinJSBridge.invoke('sendAppMessage', {
+	//             "img_url": window.shareData.imgUrl,
+	//             "img_width": "200",
+	//             "img_height": "200",
+	//             "link": window.shareData.timeLineLink,
+	//             "desc": window.shareData.tContent,
+	//             "title": window.shareData.tTitle
+	//         }, onShareComplete);
+	//     });
 
-	    WeixinJSBridge.on('menu:share:timeline', function(argv) {
-	        WeixinJSBridge.invoke('shareTimeline', {
-	            "img_url": window.shareData.imgUrl,
-	            "img_width": "200",
-	            "img_height": "200",
-	            "link": window.shareData.timeLineLink,
-	            "desc": window.shareData.tContent,
-	            "title": window.shareData.tTitle
-	        }, onShareComplete);
-	    });
-	}, false);
+	//     WeixinJSBridge.on('menu:share:timeline', function(argv) {
+	//         WeixinJSBridge.invoke('shareTimeline', {
+	//             "img_url": window.shareData.imgUrl,
+	//             "img_width": "200",
+	//             "img_height": "200",
+	//             "link": window.shareData.timeLineLink,
+	//             "desc": window.shareData.tContent,
+	//             "title": window.shareData.tTitle
+	//         }, onShareComplete);
+	//     });
+	// }, false);
 
-	function onShareComplete(res){
+	// function onShareComplete(res){
 
-	}
+	// }
 	var tmpl = '<ul>' + 
 					'{# for ( var i = 0; i <' + 4 +'; i++) { #}' +
 						'<li></li>' +
@@ -207,7 +207,7 @@
 	//微信分享操作
 	//
 	
-	// var shareThis = new pageShare(shareData);
+	new pageShare(shareData);
 
 // }());
 	
