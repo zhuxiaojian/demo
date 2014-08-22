@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-22 09:37:23
+* @Last Modified time: 2014-08-22 09:43:42
 */
 
 // (function(){
@@ -41,10 +41,12 @@
 	            "img_url": window.shareData.imgUrl,
 	            "img_width": "200",
 	            "img_height": "200",
-	            "link": window.shareData.timeLineLink,
+	            "link": window.shareData.timeLineLink || window.location.href,
 	            "desc": window.shareData.descContent,
 	            "title": window.shareData.shareTitle
-	        }, onShareComplete);
+	        }, function(res) {
+                //_report('send_msg', res.err_msg);
+            });
 	    });
 
 	    WeixinJSBridge.on('menu:share:timeline', function(argv) {
@@ -52,16 +54,17 @@
 	            "img_url": window.shareData.imgUrl,
 	            "img_width": "200",
 	            "img_height": "200",
-	            "link": window.shareData.timeLineLink,
+	            "link": window.shareData.timeLineLink || window.location.href,
 	            "desc": window.shareData.descContent,
 	            "title": window.shareData.shareTitle
-	        }, onShareComplete);
+	        }, function(res) {
+                //_report('send_msg', res.err_msg);
+            });
 	    });
+	    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            WeixinJSBridge.call('hideToolbar');
+        });
 	}, false);
-
-	function onShareComplete(res){
-
-	}
 	var tmpl = '<ul>' + 
 					'{# for ( var i = 0; i <' + 4 +'; i++) { #}' +
 						'<li></li>' +
@@ -207,7 +210,7 @@
 	//微信分享操作
 	//
 	
-	new pageShare(shareData);
+	// new pageShare(shareData);
 
 // }());
 	
