@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-22 12:49:03
+* @Last Modified time: 2014-08-22 16:42:37
 */
 
 // (function(){
@@ -80,8 +80,6 @@
 		Game = {
 			total: function(){
 				Mdata.on("touch:total", function(item){
-					console.log("total")
-					
 					// Array.prototype.slice.call(document.querySelectorAll("li")).forEach(function(item, index){
 						item.addEventListener("touchstart", function(){
 							totalNumber += parseInt(this.dataset.total,10);
@@ -118,24 +116,47 @@
 				var _this = this;
 				this.start();
 				this.total();
+				
+				
 				Mdata.on("start:game", function(){
+					var _count = 1;
 					var startClick = setInterval(function(){
-
+						_count++;
 						if(Mdata.Time <= 0.1){
 							Mdata.trigger("win", document.querySelector("#total").innerHTML);
 							_this.resetGame();
 							clearInterval(startClick);
 						};
+						var arrT = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].sort(function() {
+			                return Math.random() > 0.5 ? 1 : -1;
+			            });
+						Array.prototype.slice.call(document.querySelectorAll("li")).forEach(function(item, index, _this){
 
-						Array.prototype.slice.call(document.querySelectorAll("li")).forEach(function(item, index){
 							var R = parseInt(Math.random() * 1000,10);
 							R = (Math.random() * 2 > 1) ? -R : R;
+							
 							var _itemR = (Math.random() * 2 > 1) ? true : false;
-							if(_itemR){
-								item.className = "empty"
-							}else{
-								item.className = ""
+
+							if(_count < 7){
+								
+								// for(var i = 0; i < _count; i++){
+								// 	document.querySelectorAll("li")[arrT[i]].className = "";
+								// }
+								
+								if(index < _count){
+									_this[arrT[index]].className = "";
+								} else {
+									_this[arrT[index]].className = "empty";
+								}
+								
+							} else {
+								if(_itemR){
+									item.className = "empty"
+								}else {
+									item.className = "";
+								}
 							}
+
 							item.dataset.total = R;
 							var _html = "";
 							var arr = item.dataset.total.split("");
@@ -175,9 +196,10 @@
 				Array.prototype.slice.call(document.querySelectorAll("li")).forEach(function(item, index){
 					item.style.cssText = "height:" + (item.clientWidth - 15) + "px;line-height:" + (item.clientWidth - 15) + "px;" ;
 					var R = parseInt(Math.random() * 1000,10);
-					R = (Math.random() * 2 > 1) ? -R : R;
-					var _itemR = (Math.random() * 2 > 1) ? true : false;
-					_itemR && (item.className = "empty");
+					// R = (Math.random() * 2 > 1) ? -R : R;
+					if( index != 10){
+						item.className = "empty";
+					}
 					item.dataset.total = R;
 					var _html = "";
 					var arr = item.dataset.total.split("");
