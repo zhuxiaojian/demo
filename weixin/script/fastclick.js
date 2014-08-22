@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-22 11:41:56
+* @Last Modified time: 2014-08-22 12:49:03
 */
 
 // (function(){
@@ -146,7 +146,7 @@
 							item.innerHTML =_html;
 						});
 
-					}, 500);
+					}, 1000);
 				});
 			},
 			resetGame: function(){
