@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-21 21:03:58
+* @Last Modified time: 2014-08-22 09:37:23
 */
 
 // (function(){
@@ -10,7 +10,7 @@
 	
 	var Mdata = MO.obs({
 		total: 0,
-		Time: 30,
+		Time: 20,
 		win: function(callback){
 			Mdata.on("win", function(total){
 				document.querySelector("#score").innerHTML = Mdata.total;
@@ -34,34 +34,34 @@
 	};
 
 
-	// document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
 		    
-	//     WeixinJSBridge.on('menu:share:appmessage', function(argv) {
-	//         WeixinJSBridge.invoke('sendAppMessage', {
-	//             "img_url": window.shareData.imgUrl,
-	//             "img_width": "200",
-	//             "img_height": "200",
-	//             "link": window.shareData.timeLineLink,
-	//             "desc": window.shareData.tContent,
-	//             "title": window.shareData.tTitle
-	//         }, onShareComplete);
-	//     });
+	    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+	        WeixinJSBridge.invoke('sendAppMessage', {
+	            "img_url": window.shareData.imgUrl,
+	            "img_width": "200",
+	            "img_height": "200",
+	            "link": window.shareData.timeLineLink,
+	            "desc": window.shareData.descContent,
+	            "title": window.shareData.shareTitle
+	        }, onShareComplete);
+	    });
 
-	//     WeixinJSBridge.on('menu:share:timeline', function(argv) {
-	//         WeixinJSBridge.invoke('shareTimeline', {
-	//             "img_url": window.shareData.imgUrl,
-	//             "img_width": "200",
-	//             "img_height": "200",
-	//             "link": window.shareData.timeLineLink,
-	//             "desc": window.shareData.tContent,
-	//             "title": window.shareData.tTitle
-	//         }, onShareComplete);
-	//     });
-	// }, false);
+	    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+	        WeixinJSBridge.invoke('shareTimeline', {
+	            "img_url": window.shareData.imgUrl,
+	            "img_width": "200",
+	            "img_height": "200",
+	            "link": window.shareData.timeLineLink,
+	            "desc": window.shareData.descContent,
+	            "title": window.shareData.shareTitle
+	        }, onShareComplete);
+	    });
+	}, false);
 
-	// function onShareComplete(res){
+	function onShareComplete(res){
 
-	// }
+	}
 	var tmpl = '<ul>' + 
 					'{# for ( var i = 0; i <' + 4 +'; i++) { #}' +
 						'<li></li>' +
@@ -136,7 +136,7 @@
 							item.innerHTML =_html;
 						});
 
-					}, 1000);
+					}, 500);
 				});
 			},
 			resetGame: function(){
@@ -151,7 +151,7 @@
 						reset.style.display = "none";
 						mask.style.display = "none";
 						Mdata.total = 0;
-						Mdata.Time = 30;
+						Mdata.Time = 20;
 						totalNumber = 0;
 						document.querySelector("#total").innerHTML = 0;
 						Mdata.trigger("start");
