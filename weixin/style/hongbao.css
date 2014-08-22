@@ -2,11 +2,13 @@
 * @Author: 12050231
 * @Date:   2014-08-21 14:07:49
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-21 20:59:30
+* @Last Modified time: 2014-08-22 11:26:36
 */
 *{-webkit-box-sizing:border-box;}
 ul{width:100%;overflow:hidden;max-width:1024px;margin:50px auto 0;}
 li{width:25%;text-align:center;float:left;margin:5px 0;color:#fff;font-size:12px;color:#ff0;max-width:100px;background:url(images/hongbao/hongbao.png) no-repeat center;background-size:51px 67px;border-radius:25px;}
+li.empty{background:none;}
+li.empty span{display:none;}
 li span{margin-left:-4px;margin-top:21px;}
 .total,.time{font-size:12px;width:50%;position:absolute;top:0;width:80px;height:25px;border-radius:10px;line-height:25px;color:#008fff;text-align:right;padding-right:5px;}
 .total{left:15px;background:rgba(0,0,0,.3) url(images/hongbao/score.png) no-repeat 3px center;background-size:19px 20px;}

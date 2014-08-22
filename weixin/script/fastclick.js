@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-22 09:43:42
+* @Last Modified time: 2014-08-22 11:28:07
 */
 
 // (function(){
@@ -129,6 +129,12 @@
 						Array.prototype.slice.call(document.querySelectorAll("li")).forEach(function(item, index){
 							var R = parseInt(Math.random() * 1000,10);
 							R = (Math.random() * 2 > 1) ? -R : R;
+							console.log(R)
+							if( R > 0){
+								item.className = "empty";
+							} else {
+								item.className = "";
+							}
 							item.dataset.total = R;
 							var _html = "";
 							var arr = item.dataset.total.split("");
@@ -169,6 +175,9 @@
 					item.style.cssText = "height:" + (item.clientWidth - 15) + "px;line-height:" + (item.clientWidth - 15) + "px;" ;
 					var R = parseInt(Math.random() * 1000,10);
 					R = (Math.random() * 2 > 1) ? -R : R;
+					if( R > 0){
+						item.className = "empty";
+					}
 					item.dataset.total = R;
 					var _html = "";
 					var arr = item.dataset.total.split("");
