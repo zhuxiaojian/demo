@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-22 11:28:07
+* @Last Modified time: 2014-08-22 11:41:56
 */
 
 // (function(){
@@ -86,6 +86,7 @@
 						item.addEventListener("touchstart", function(){
 							totalNumber += parseInt(this.dataset.total,10);
 							Mdata.total = totalNumber;
+							if(this.className == "empty"){ return ;}
 							if(parseInt(this.dataset.total) < 0){
 								this.innerHTML = '<img width="51" height="67" src="data:image/x-png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAACLCAMAAACKnj2eAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAB7UExURUxpcf/7/LccK/349/na3bcdK7cbKrYbKbceLPv09LYZKP3497ceLbcYKLskNOOBjsg9Te3EyPfl5f34+P/8/N+Zn/Tb3NBrdbkcLPft6uevtf/7/P////6UoP6LmPyfruPg0wK+hPHt29Vca/7Bx9vz65/kzyPGlEbPpHPAcDgAAAAbdFJOUwBYaBT5PJD+wfkPuashVP7+6i6A09hSzeSpoqk/W9MAAANOSURBVGje7Zlrc6sqFEDVqIDvqDEmYGmjae///4WHh4nmoaeTAGfmDusD1da63JsNijqOxWKxWCwWi8VisVj+DVXtjo0xYuyOjTEQTgLZmGKDEQxEY0zp4i1MRWOuevAukY3B6tmHsjFYPdCTjSnKu+rZVLWJ6olEIy7ggDEudSvrWfXEmLPTHWYAp+qRSl/3cAmSqXpcocSXStpUrtYSEg40yyzv11hrCTlTZrdsp5Gbmc4ScmaZzdxabuC9zhJyZplF+MI20lhCziyzE77u+0tzZ/R3eufBzbUDL0ndQwg13mA2FboPkAuzlb5sqsrdvKG8ixBxobfWkUd5idvyjbF5y341QCfwrxd3fNl5PYfc8FcPzvxZQl4eu80o3EN5umYtxlwccj7LfwnfCRPxotnJTlo5tOX9iP77+vr55of2wcthCqF4qMWrd2qv4H9nRgYPNIevhimEfB4//iVM2PMghfGLh7kF6cszLfSiaabdLp0nAlx5nitfnqO8y7A4iDJaOk8KRGJ/roml4P0n0tLnc124qAQ8DeefMUjcK1A6HhMuliFTykHy/S1GiQ9UKNNwre5bAGZTAQsS6Hp4uBICUEw3gRwAEOlWBkxSbMfZisUIDKxnWJhMmlOacyFoI/3KCII5RhbDUTIJW1PLb68djWHkGCPwwiTMDAotloWnaKO2sopr9Mk4VKURYVMTxqfkFDf68xlzIcGjkXHQnOJShEjIaVKeTiLQsnFdV0OeN0gar3nlIFwdaix/j2NXcdAxuYAmJbkFVyqlzfzU6BMRxIMk9yCFL4IO5PH0j0ZGrCxQn/yWWpUTkd87zSvJQV1iMfJ9f+CwnyvXoOiFbT7Q7uMWOixp1bxMDLsHmLXz8SUyHv5lDyupoCDvumfWTpQyHsYUDFKqZsKHtHsuHQjxZ5cgkn1Uokz7Redws4uUKZ1s0Xm7y+NUpHS84rnz/hIoJsqWkxlbS/3GOQzqPjGksPigM+tCpjulb78zWPQdHcmfB017xUutIGxB0fd9UQCYFPRRSnMNa+Y08zwv4/2VtfdlTGmveZUehXx5Pvlo3+r/6JgmoM9l937kBQiNfD5OvUSumKHZBWxkV8sWi8VisVgsFovFYrH83/gDaz2eK5NdYq8AAAAASUVORK5CYII=" />';
 							}else{
@@ -129,11 +130,11 @@
 						Array.prototype.slice.call(document.querySelectorAll("li")).forEach(function(item, index){
 							var R = parseInt(Math.random() * 1000,10);
 							R = (Math.random() * 2 > 1) ? -R : R;
-							console.log(R)
-							if( R > 0){
-								item.className = "empty";
-							} else {
-								item.className = "";
+							var _itemR = (Math.random() * 2 > 1) ? true : false;
+							if(_itemR){
+								item.className = "empty"
+							}else{
+								item.className = ""
 							}
 							item.dataset.total = R;
 							var _html = "";
@@ -175,9 +176,8 @@
 					item.style.cssText = "height:" + (item.clientWidth - 15) + "px;line-height:" + (item.clientWidth - 15) + "px;" ;
 					var R = parseInt(Math.random() * 1000,10);
 					R = (Math.random() * 2 > 1) ? -R : R;
-					if( R > 0){
-						item.className = "empty";
-					}
+					var _itemR = (Math.random() * 2 > 1) ? true : false;
+					_itemR && (item.className = "empty");
 					item.dataset.total = R;
 					var _html = "";
 					var arr = item.dataset.total.split("");
