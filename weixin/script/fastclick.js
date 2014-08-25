@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-22 16:42:37
+* @Last Modified time: 2014-08-25 11:39:49
 */
 
 // (function(){
@@ -13,6 +13,7 @@
 		Time: 20,
 		win: function(callback){
 			Mdata.on("win", function(total){
+				Mdata.total = document.querySelector("#total").innerHTML;
 				document.querySelector("#score").innerHTML = Mdata.total;
 				document.title = "红包抢夺战,我从红包里得到了" + Mdata.total + "分,一起来挑战吧";
 				window.shareData.shareTitle = "红包抢夺战,我从红包里得到了" + Mdata.total + "分,一起来挑战吧";

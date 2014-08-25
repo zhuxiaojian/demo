@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-21 14:07:49
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-22 15:20:03
+* @Last Modified time: 2014-08-25 11:42:27
 */
 *{-webkit-box-sizing:border-box;}
 ul{width:100%;overflow:hidden;max-width:1024px;margin:50px auto 0;}
@@ -14,7 +14,7 @@ li span{margin-left:-4px;margin-top:21px;}
 .total{left:15px;background:rgba(0,0,0,.3) url(images/hongbao/score.png) no-repeat 3px center;background-size:19px 20px;}
 .time{right:15px;background:rgba(0,0,0,.3) url(images/hongbao/time.png) no-repeat 3px center;background-size:19px 20px;}
 body{background:none;}
-html{background:url(images/hongbao/bg.jpg) no-repeat center;background-size:100%;}
+html{background:#fff url(images/hongbao/bg.jpg) no-repeat 0 -30px;background-size:100%;}
 #mask{display:none;position:fixed;top:0;left:0;height:100%;width:100%;background:rgba(0,0,0,.1);z-index:5;}
 .startPage img{display:block;margin:60px auto;}
 #reset{position:relative;z-index:20;}
