@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-25 11:39:49
+* @Last Modified time: 2014-08-26 15:44:36
 */
 
 // (function(){
@@ -10,7 +10,7 @@
 	
 	var Mdata = MO.obs({
 		total: 0,
-		Time: 20,
+		Time: 5,
 		win: function(callback){
 			Mdata.on("win", function(total){
 				Mdata.total = document.querySelector("#total").innerHTML;
@@ -183,7 +183,7 @@
 						reset.style.display = "none";
 						mask.style.display = "none";
 						Mdata.total = 0;
-						Mdata.Time = 20;
+						Mdata.Time = 5;
 						totalNumber = 0;
 						document.querySelector("#total").innerHTML = 0;
 						Mdata.trigger("start");
@@ -226,23 +226,21 @@
 		document.querySelector("#startBtn").addEventListener("click", function(){
 			document.querySelector("#page1").style.display = "none";
 			Game.init();
+			
 		});
+		setTimeout(scrollTo, 0 ,0, 0);
+		document.addEventListener("touchmove", function(e){
+			e.preventDefault();
+		});
+		document.querySelector("#touchBox").addEventListener("touchmove", function(e){
+			e.preventDefault();
+		});
+		Array.prototype.slice.call(document.querySelectorAll("li")).forEach(function(item, index){
+			item.addEventListener("touchmove", function(e){
+				e.preventDefault();
+				return false;
+			});
+		})
+			
 	});
-
-	// Object.defineProperty(Mdata, "total", {
-	//     set: function (value) {
-	//         this._name = totalNumber;
-	//     },
-	//     get: function () {
-
-	//         return totalNumber;
-	//     }
-	// });
-
-	//微信分享操作
-	//
-	
-	// new pageShare(shareData);
-
-// }());
 	
