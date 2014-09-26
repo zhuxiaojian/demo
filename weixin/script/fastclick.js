@@ -2,7 +2,7 @@
 * @Author: 12050231
 * @Date:   2014-08-20 09:35:18
 * @Last Modified by :   12050231
-* @Last Modified time: 2014-08-26 15:44:36
+* @Last Modified time: 2014-09-05 17:45:13
 */
 
 // (function(){
@@ -21,6 +21,10 @@
 			});
 		}
 	});
+
+
+
+	
 	var Game = {};
 	var totalNumber = 0;
 
