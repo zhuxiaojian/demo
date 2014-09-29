@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no" name="format-detection" />
+        <style type="text/css">
+        *{margin:0;padding:0;}
+        	html{height:100%;width:100%;overflow:hidden;}
+			body{background-size:100%;height:100%;overflow:hidden;}
+            img{display:block;}
+
+	.imgarr{position:relative;left:0;top:0;z-index:10;width:100%;}
+    .imgarr img,.imgarr1 img{position:absolute;left:0;top:0;z-index:1;max-width:100%;}
+    .mask{height:100%;width:100%;background:rgba(255,255,255,.3);position:absolute;z-index:100;text-align: center;line-height:300px;}
+    .hide{display:none;}
+    .vm{position:absolute;top:50%;-webkit-transform: translateY(-50%);}
+    .lm{position:absolute;left:50%;-webkit-transform: translateX(-50%);}
+
+
+        </style>
+<script type="text/javascript">
+    var phoneWidth = parseInt(window.screen.width);
+    var phoneScale = phoneWidth / 640;
+    var ua = navigator.userAgent;
+    if (/Android (\d+\.\d+)/.test(ua)) {
+        var version = parseFloat(RegExp.$1);
+        if (version > 2.3) {
+            document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+        } else {
+            document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+        }
+    } else {
+        document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+    }
+
+    //微信去掉下方刷新栏
+    if(navigator.userAgent.indexOf('MicroMessenger') >= 0){
+        document.addEventListener('WeixinJSBridgeReady', function() {
+            //WeixinJSBridge.call('hideToolbar');
+        });
+    }
+    </script>
+
+<!-- <script type="text/javascript" src="http://m.suning.com/RES/wap/common/script/res/requireBase.js?v=2.2.7"></script> -->
+<script type="text/javascript" src="img/common.js"></script>
+    </head>
+    <body>
+    <div class="mask mask1 hide">动画开始</div>
+    <div class="mask mask2 hide">雾气消失</div>
+    <div class="imgarr lm">
+        <img src="img/1.jpg" style="z-index:5;">
+        <img src="img/2.jpg">
+        <img src="img/3.jpg">
+        <img src="img/4.jpg">
+        <img src="img/5.jpg">
+        <img src="img/6.jpg">
+        <img src="img/7.jpg">
+    </div>
+    <div class="imgarr2 lm">
+        <img src="img/8.jpg">
+    </div>
+	<script type="text/javascript">
+	var i = 4;
+    var pre = 0;
+    var cur = 0;
+    
+    $(".mask1").on("click", function(){
+        
+        var spirit = setInterval(function() {
+            if(pre === 6){
+                clearInterval(spirit);
+                $(".mask2").show();
+                console.log(1)
+                $(".mask2").on("click", function(){
+                    $(".mask2").hide();
+                    $(".imgarr").fadeOut();
+                    $(".imgarr2").fadeIn();
+                });
+                return
+            }
+            console.log($(".imgarr img").eq(pre))
+            // $(".imgarr img").eq(pre).fadeOut(100, function() {
+            //     $(this).css("z-index", 1);
+            // });
+            pre = cur = cur >= 6 ? 0 : cur += 1;
+            $(".imgarr img").eq(cur).css({
+                "z-index": 5,
+                display: "block"
+            });
+
+        }, 200);
+        $(this).hide();
+    });
+// $(".mask").hide();
+	preloadimages(["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg","img/6.jpg","img/7.jpg","img/8.jpg"]).done(function(){
+
+        $(".mask1").show();
+
+	});
+
+function preloadimages(arr) {
+    var newimages = [],
+        loadedimages = 0;
+    var postaction = function() {};
+    var arr = (typeof arr != "object") ? [arr] : arr;
+
+    function imageloadpost() {
+        loadedimages++;
+        if (loadedimages == arr.length) {
+            postaction(newimages)
+        }
+    }
+    for (var i = 0; i < arr.length; i++) {
+        newimages[i] = new Image();
+        newimages[i].src = arr[i];
+        newimages[i].onload = function() {
+            imageloadpost()
+        };
+        newimages[i].onerror = function() {
+            imageloadpost()
+        }
+    }
+    return {
+        done: function(f) {
+            postaction = f || postaction
+        }
+    }
+}
+
+	</script>
+    </body>
+</html>
